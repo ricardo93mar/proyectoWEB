@@ -16,8 +16,9 @@ h6 {
     font-weight: 300;
 }
 
-.topnav {
-    font-size: 14px; 
+.topnav {  /*barra del menu*/
+    font-size: 14px;
+    background-color: #2d2d2d;
 }
 
 .lead {
@@ -25,11 +26,11 @@ h6 {
     font-weight: 400;
 }
 
-.intro-header {
+.intro-header {/*letras de programacion web*/
     padding-top: 50px; /* If you're making other pages, make sure there is 50px of padding to make sure the navbar doesn't overlap content! */
     padding-bottom: 50px;
     text-align: center;
-    color: #f8f8f8;
+    color: #8080ff;
     background: url(../img/wood.jpg) no-repeat center center; 
     background-size: cover;
     background-attachment: fixed;
@@ -37,8 +38,8 @@ h6 {
 
 .intro-message {
     position: relative;
-    padding-top: 20%;
-    padding-bottom: 20%;
+    padding-top: 10%;
+    padding-bottom: 10%;
 }
 
 .intro-message > h1 {
@@ -47,10 +48,10 @@ h6 {
     font-size: 5em;
 }
 
-.intro-divider {
-    width: 400px;
-    border-top: 1px solid #f8f8f8;
-    border-bottom: 1px solid rgba(0,0,0,0.2);
+.intro-divider {/*linea verde*/
+    width: 800px;
+    border-top: 1px solid #008000;
+    border-bottom: 1px solid rgba(0, 0, 255, 0.2);
 }
 
 .intro-message > h3 {
@@ -88,9 +89,9 @@ h6 {
     letter-spacing: 2px;
 }
 
-.content-section-a {
+.content-section-a {/* areas grises*/
     padding: 50px 0;
-    background-color: #f8f8f8;
+    background-color: #c0c0c0;
 }
 
 .content-section-b {
@@ -197,6 +198,7 @@ body {
 }
 
 .row {
+    background-color: #8080ff;
     display: inline;
 }
 .row .banner-social-buttons {
