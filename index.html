@@ -30,8 +30,48 @@
      $(function () {
         $('[data-toggle="tooltip"]').tooltip();
      });
+
+	</script>
+	<script>
+        function initGeolocation() {
+			document.getElementById('map').style.display = "none";
+			document.getElementById('loading').style.display = "block";
+            navigator.geolocation.getCurrentPosition(onSuccess, onError);
+        }
+
+        function onSuccess(position){
+			document.getElementById('loading').style.display = "none";
+			var imageUrl = "http://maps.google.com/maps/api/staticmap?sensor=false&center=" + position.coords.latitude + "," +
+                    position.coords.longitude + "&zoom=14&size=300x400&markers=color:blue|label:S|" +
+                    position.coords.latitude + ',' + position.coords.longitude;
+            
+			alert(position.coords.latitude + ", " + position.coords.longitude);
+			document.getElementById('map').src = imageUrl;
+			document.getElementById('map').style.display = "block";
+        }		
+		
+        function onError(error)
+        {
+			document.getElementById('loading').style.display = "none";
+            switch(error.code)
+            {
+                case error.PERMISSION_DENIED: alert("No se ha permitido compartir los datos de geolocalización");
+                break;
+
+                case error.POSITION_UNAVAILABLE: alert("No se puede detectar la posición actual");
+                break;
+
+                case error.TIMEOUT: alert("Se ha superado el tiempo de espera");
+                break;
+
+                default: alert("Error desconocido");
+                break;
+            }
+        }
     </script>
+</head>
 <body data-spy="scroll" data-target="#nav">
+	
     <!-- Navigation -->
     <nav id="nav" class="navbar navbar-inverse navbar-fixed-top topnav" role="navigation">
         <div class="container topnav">
@@ -51,6 +91,9 @@
                     <li>
                         <a href="http://www.encom.com">Inicio</a>
                     </li>
+					<li>
+						<a href="maps.html">Contacto</a>
+					</li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -222,20 +265,23 @@
         </div>
          
      </div>
-
     <div class="questions container-fluid">     
         <div class="panel-group" id="accordion">
           <div class="panel panel-default">
             <div class="panel-heading">
               <h4 class="panel-title">
                 <a data-toggle="collapse" data-parent="#missingcode" href="#collapseOne">
-                  Why did you decide to become a web developer
+                  API de Google Maps, Geolocalizacion
                 </a>
               </h4>
             </div>
             <div id="collapseOne" class="panel-collapse collapse in">
               <div class="panel-body">
-            I decided to take a crack at web development to expand on my knowledge and skillset as a system admin. I do want to create a buseiness for myself as a web developer in the future.
+				<div>
+					<span id="loading" style="display:none">Cargando...</span>
+					<button onclick="initGeolocation();">Buscar mi localización</button>
+				</div>
+				<img id="map" style="width: 400px; height: 550px" class="img-responsive" alt=""/>
               </div>
             </div>
           </div>
@@ -307,9 +353,7 @@
          <div class="video">
             <center>
                 <!--<iframe width="560" height="315" src="https://www.youtube.com/embed/YIOT2e2vV9Y" frameborder="0" allowfullscreen></iframe>-->
-				<video controls width="600" height="355" style="border-color: #0000ff; border-width: 10px;border: groove ">
-					 <source src="videos.mp4" type="../video/mp4">
-				</video>
+				<iframe width="560" height="315" src="https://www.youtube.com/embed/jSJ8xhKtfP4" frameborder="0" allowfullscreen></iframe>
             </center>
          </div>
          <div class="container">
